@@ -36,7 +36,7 @@ def test_post():
 
     db.user.insert_one(doc)
 
-    return jsonify({'msg': '기록했습니다.'})
+    return jsonify({'msg': '기록습니다.'})
 
 @app.route('/boob', methods=['POST'])
 def boob_post():
@@ -53,3 +53,4 @@ def add_comment_post():
 
 if __name__ == '__main__':
    app.run('0.0.0.0',port=5000,debug=True)
+
