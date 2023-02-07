@@ -1,0 +1,245 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+          integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
+            integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
+            crossorigin="anonymous"></script>
+
+    <title>스파르타코딩클럽 | 부트스트랩 연습하기</title>
+    <style>
+        .mytitle {
+            background-color: green;
+
+            height: 250px;
+            width: 100%;
+
+            color: white;
+
+            background-image: linear-gradient(0deg, rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url("data:image/jpeg;base64,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");
+            background-size: cover;
+            background-position: center;
+
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .mytitle > button {
+            margin: 5px;
+            width: 200px;
+            height: 50px;
+            background-color: transparent;
+
+            color: white;
+            border-radius: 50px;
+
+            border: 1px solid white;
+        }
+
+        .mytitle > button:hover {
+            border: 2px solid white;
+        }
+
+        .postbox {
+            max-width: 500px;
+            width: 95%;
+            box-shadow: 0px 0px 3px 0px gray;
+            padding: 20px;
+            margin: 10px auto 0px auto;
+
+            display: none;
+        }
+
+        .form-select {
+            margin: 10px auto 10px auto;
+        }
+
+        .wrap {
+            margin: 20px auto 0px auto;
+            max-width: 500px;
+            width: 95%;
+
+        }
+
+        .mybtn {
+            margin-top: 10px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: row;
+        }
+
+        .mybtn > button {
+            margin-right: 10px;
+        }
+    </style>
+    <script>
+
+        $(document).ready(function () {
+            show_temp();
+            show_accodion();
+        });
+
+        function show_temp() {
+            $.ajax({
+                type: "GET",
+                url: "http://spartacodingclub.shop/sparta_api/weather/seoul",
+                data: {},
+                success: function (response) {
+                    let temp = response['temp'];
+                    $('#temp').append(temp)
+                }
+            })
+        }
+
+        function show_accodion() {
+            $.ajax({
+                type: "GET",
+                url: "/test",
+                data: {},
+                success: function (response) {
+                    let rows = response['user_data']
+                    for (let i = 0; i < rows.length; i++) {
+                        let label = rows[i]['label']
+                        let box = rows[i]['box']
+                        let comment = rows[i]['comment']
+                        let index = i.toString();
+
+                        let accodion_html = `
+                        <div class="accordion-item">
+            <h2 class="accordion-header" id="heading${index}">
+                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                        data-bs-target="#collapse${index}" aria-expanded="true" aria-controls="collapse${index}">
+                    ${label}
+                </button>
+            </h2>
+            <div id="collapse${index}" class="accordion-collapse collapse" aria-labelledby="heading${index}"
+                 data-bs-parent="#accordionExample">
+                <div class="accordion-body">
+                     ${box}
+<p>${comment}</p>
+                     <div class="input-group mb-3">
+  <input type="text" class="form-control" placeholder="응원해 주세요" aria-label="Recipient's username" aria-describedby="button-addon2" id="Input_comment">
+  <button class="btn btn-outline-secondary" type="button" id="comment" onclick="add_comment()">응원하기</button>
+</div>
+                </div>
+            </div>
+        </div>`
+                        $('#accordionExample').append(accodion_html)
+
+                    }
+
+
+                }
+            })
+        }
+
+        function add_comment() {
+
+            let comment = $('#Input_comment').val() ?? '';
+            $.ajax({
+                type: "POST",
+                url: "/add_comment",
+                data: {comment_give: comment},
+                success: function (response) {
+                    alert(response['msg'])
+                    window.location.reload();
+                }
+            })
+
+        }
+
+        function add_post() {
+
+            let Input_label = $('#Input_label').val();
+            let Input_text = $('#input-box').val();
+            let Input_comment = $('#comment').val();
+
+            $.ajax({
+                type: "POST",
+                url: "/test",
+                data: {label_give: Input_label, box_give: Input_text, comment_give: Input_comment},
+                success: function (response) {
+                    alert(response['msg'])
+                    window.location.reload();
+                }
+            })
+
+        }
+
+        function open_box() {
+            $('#post-box').show()
+        }
+
+
+        function op_box() {
+            $.ajax({
+                type: "POST",
+                url: "/boob",
+                data: {},
+                success: function (response) {
+                    alert(response['msg'])
+                    window.location.reload();
+                }
+            })
+
+        }
+
+        function close_box() {
+            $('#post-box').hide()
+        }
+    </script>
+</head>
+
+<body>
+
+<div class="mytitle">
+    <h1>테스트 입니다</h1>
+    <p5>현재기온: <span id="temp"></span>도</p5>
+    <button onclick="open_box()">버튼입니다</button>
+    <button onclick="op_box()">폭파</button>
+</div>
+
+<div class="postbox" id="post-box">
+    <select class="form-select" aria-label="Default select example" id="Input_label">
+        <option selected>운동명</option>
+        <option value="코딩">코딩</option>
+        <option value="조깅">조깅</option>
+        <option value="팔굽혀 펴기">팔굽혀 펴기</option>
+        <option value="윗몸 일으키기">윗몸 일으키기</option>
+        <option value="맨몸 스쿼트">맨몸 스쿼트</option>
+        <option value="달리기">달리기</option>
+        <option value="턱걸이">턱걸이</option>
+        <option value="스트레칭">스트레칭</option>
+    </select>
+
+    <div class="form-floating">
+        <textarea class="form-control" placeholder="Leave a comment here" id="input-box"
+                  style="height: 100px"></textarea>
+        <label for="input-box">상세내용</label>
+        <div class="mybtn">
+            <button type="button" class="btn btn-dark" onclick="add_post()">운동 기록 남기기</button>
+            <button type="button" class="btn btn-outline-dark" onclick="close_box()">닫기</button>
+        </div>
+
+    </div>
+</div>
+<div class="wrap">
+    <div class="accordion" id="accordionExample">
+
+    </div>
+</div>
+
+</body>
+
+</html>
+
+
