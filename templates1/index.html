@@ -1,0 +1,374 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+          integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
+            integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
+            crossorigin="anonymous"></script>
+    <title>19조 Toy Project | 태윤희</title>
+    <link href="https://fonts.googleapis.com/css2?family=Jua&display=swap" rel="stylesheet">
+    <style>
+        * {
+            font-family: 'Jua', sans-serif;
+        }
+
+        .title {
+            width: 100%;
+            height: 350px;
+            background-image: url("data:image/jpeg;base64,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");
+            background-position: center;
+            background-size: cover;
+
+            color: cornflowerblue;
+
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+
+            text-shadow: 0px 0px 90px black;
+        }
+
+        .title > button {
+            width: 70px;
+            height: 50px;
+
+            background-color: transparent;
+
+            color: cornflowerblue;
+            border-radius: 10px;
+            border: 1px solid cornflowerblue;
+            margin-top: 10px;
+        }
+
+        .title > button:hover {
+            border: 2px solid white;
+        }
+
+        .mypost {
+            display: flex;
+        }
+
+        .post {
+            width: 800px;
+            height: 300px;
+
+            margin: 80px auto 0px auto;
+
+            box-shadow: 0px 0px 3px 0px gray;
+
+            padding: 40px
+
+        }
+
+        .mybtn {
+            margin-top: 30px;
+
+            display: flex;
+            flex-direction: row;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .accordion {
+            width: 800px;
+
+            margin: px auto 0px auto;
+
+            padding: 10px
+        }
+
+        .totalhethy {
+            width: 600px;
+            height: 720px;
+
+            margin: 80px auto 0px auto;
+
+            box-shadow: 0px 0px 3px 0px gray;
+        }
+
+        .Movie_link {
+            max-width: 95%;
+            width: 600px;
+            height: 720px;
+
+            margin: 80px auto 0px auto;
+
+            box-shadow: 0px 0px 3px 0px gray;
+
+        }
+    </style>
+    <script>
+        $(document).ready(function () {
+            temp()
+            show()
+        });
+
+        function temp() {
+            $.ajax({
+                type: "GET",
+                url: "http://spartacodingclub.shop/sparta_api/weather/suwon",
+                data: {},
+                success: function (response) {
+                    let temp = response['temp']
+
+                    $("#temp").text(temp)
+                }
+            })
+        };
+
+        function show() {
+            $('#accordion_boxs').empty()
+            $.ajax({
+                type: 'GET',
+                url: '/eh',
+                data: {},
+                success: function (response) {
+                    let rows = response['comments']
+                    for (let i =0; rows.length; i ++) {
+                        let sport = rows[i]['sport']
+                        let comment = rows[i]['comment']
+
+                        let temp_html = `<div class="accordion_box">
+                                            <div class="accordion accordion-flush" id="accordionFlushExample">
+                                                <div class="accordion-item">
+                                                    <h2 class="accordion-header" id="flush-headingOne">
+                                                        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                                                                data-bs-target="#flush-collapseOne" aria-expanded="false"
+                                                                aria-controls="flush-collapseOne">
+                                                            ${comment}
+                                                        </button>
+                                                    </h2>
+                                                    <div id="flush-collapseOne" class="accordion-collapse collapse"
+                                                         aria-labelledby="flush-headingOne"
+                                                         data-bs-parent="#accordionFlushExample">
+                                                        <div class="accordion-body"> ${sport}
+                                                        </div>
+                                                        <div class="input-group mb-3">
+                                                            <input type="text" class="form-control" placeholder="댓글 달아주세요!!"
+                                                                   aria-label="Recipient's username" aria-describedby="button-addon2">
+                                                            <button class="btn btn-outline-secondary" type="button" id="button-addon2">댓글달기</button>
+                                                        </div>
+                                                        <div class="card">
+                                                            <div class="card-body">
+                                                                댓글 들어갈 폼~
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>`
+                        $('#accordion_boxs').append(temp_html)
+                    }
+                }
+            });
+        }
+
+        function save_order() {
+            let sport = $('#sport').val()
+            let comment = $('#comment').val()
+
+            $.ajax({
+                type: 'POST',
+                url: '/eh',
+                data: { sport_give:sport, comment_give:comment},
+                success: function (response) {
+                    alert(response['msg'])
+                    window.location.reload()
+                }
+            });
+        }
+        function save_comment() {
+            let comment = $('#comment').val()
+
+            $.ajax({
+                type: 'POST',
+                url: 'eh/comment',
+                data: { encourage_give:encourage },
+                success: function (response) {
+                    alert(response['msg'])
+                    window.location.reload()
+                }
+            });
+        }
+    </script>
+</head>
+<body>
+    <div class="title">
+        <h1>🤼‍♀ Encourage Healthy 🏋‍♂</h1>
+        <p>현재 기온 : <span id="temp">0.00</span>도</p>
+        <button>Record</button>
+    </div>
+    <div class="mypost">
+    <div class="totalhethy">
+        <table class="table">
+            <thead>
+            <tr>
+                <th scope="col">Total</th>
+            </tr>
+            <tr>
+                <th scope="col">운동명</th>
+                <th scope="col">횟수</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr>
+                <td>코딩</td>
+                <td>회</td>
+            </tr>
+            <tr>
+                <td>조깅</td>
+                <td>회</td>
+            </tr>
+            <tr>
+                <td>팔굽혀 펴기</td>
+                <td>회</td>
+            </tr>
+            <tr>
+                <td>윗몸 일으키기</td>
+                <td>회</td>
+            </tr>
+            <tr>
+                <td>맨몸 스쿼트</td>
+                <td>회</td>
+            </tr>
+            <tr>
+                <td>달리기</td>
+                <td>회</td>
+            </tr>
+            <tr>
+                <td>턱걸이</td>
+                <td>회</td>
+            </tr>
+            <tr>
+                <td>스트레칭</td>
+                <td>회</td>
+            </tr>
+            </tbody>
+        </table>
+
+    </div>
+        <div class="record_comment">
+                <div class="post">
+                    <div class="input-group mb-3">
+                        <select class="form-select" id="sport">
+                            <option selected>운동명</option>
+                            <option value="코딩">코딩</option>
+                            <option value="조깅">조깅</option>
+                            <option value="팔굽혀 펴기">팔굽혀 펴기</option>
+                            <option value="윗몸 일으키기">윗몸 일으키기</option>
+                            <option value="맨몸 스쿼트">맨몸 스쿼트</option>
+                            <option value="달리기">달리기</option>
+                            <option value="턱걸이">턱걸이</option>
+                            <option value="스트레칭">스트레칭</option>
+                        </select>
+                    </div>
+                    <div class="form-floating">
+                    <textarea class="form-control" placeholder="Leave a comment here" id="comment"
+                              style="height: 100px"></textarea>
+                        <label for="floatingTextarea2">상세 내용</label>
+                    </div>
+                    <div class="mybtn">
+                        <button onclick="save_order()" type="button" class="btn btn-dark">운동 기록 남기기</button>
+                    </div>
+                </div>
+                <div class="accordion" id ="accordion_boxs">
+                    <div class="accordion_box">
+                        <div class="accordion accordion-flush" id="accordionFlushExample">
+                            <div class="accordion-item">
+                                <h2 class="accordion-header" id="flush-headingOne">
+                                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                                            data-bs-target="#flush-collapseOne" aria-expanded="false"
+                                            aria-controls="flush-collapseOne">
+                                        오늘은 팔굽혀 펴기를 했습니다(상세내용).
+                                    </button>
+                                </h2>
+                                <div id="flush-collapseOne" class="accordion-collapse collapse"
+                                     aria-labelledby="flush-headingOne"
+                                     data-bs-parent="#accordionFlushExample">
+                                    <div class="accordion-body"> 운동명(드롭다운 목록추가)
+                                    </div>
+                                    <div class="input-group mb-3">
+                                        <input type="text" class="form-control" placeholder="댓글 달아주세요!!"
+                                               aria-label="Recipient's username" aria-describedby="button-addon2">
+                                        <button onclick="save_comment" class="btn btn-outline-secondary" type="button" id="button-addon2">댓글달기</button>
+                                    </div>
+                                    <div class="card" id="encourage_list">
+                                        <div class="card-body">
+                                            댓글 들어갈 폼~
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="accordion_box">
+                        <div class="accordion accordion-flush" id="accordionFlushExample">
+                            <div class="accordion-item">
+                                <h2 class="accordion-header" id="flush-headingTwo">
+                                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                                            data-bs-target="#flush-collapseTwo" aria-expanded="false"
+                                            aria-controls="flush-collapseTwo">
+                                        오늘은 팔굽혀 펴기를 했습니다(상세내용).
+                                    </button>
+                                </h2>
+                                <div id="flush-collapseTwo" class="accordion-collapse collapse"
+                                     aria-labelledby="flush-headingTwo"
+                                     data-bs-parent="#accordionFlushExample">
+                                    <div class="accordion-body">운동명(드롭다운 목록추가)
+                                    </div>
+                                    <div class="input-group mb-3">
+                                        <input type="text" class="form-control" placeholder="댓글 달아주세요!!"
+                                               aria-label="Recipient's username" aria-describedby="button-addon2">
+                                        <button class="btn btn-outline-secondary" type="button" id="button-addon2">댓글달기</button>
+                                    </div>
+                                    <div class="card">
+                                        <div class="card-body">
+                                            댓글 들어갈 폼~
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="accordion_box">
+                        <div class="accordion accordion-flush" id="accordionFlushExample">
+                            <div class="accordion-item">
+                                <h2 class="accordion-header" id="flush-headingThree">
+                                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                                            data-bs-target="#flush-collapseThree" aria-expanded="false"
+                                            aria-controls="flush-collapseThree">
+                                        오늘은 팔굽혀 펴기를 했습니다(상세내용).
+                                    </button>
+                                </h2>
+                                <div id="flush-collapseThree" class="accordion-collapse collapse"
+                                     aria-labelledby="flush-headingThree"
+                                     data-bs-parent="#accordionFlushExample">
+                                    <div class="accordion-body">운동명(드롭다운 목록추가)
+                                    </div>
+                                    <div class="input-group mb-3">
+                                        <input type="text" class="form-control" placeholder="댓글 달아주세요!!"
+                                               aria-label="Recipient's username" aria-describedby="button-addon2">
+                                        <button class="btn btn-outline-secondary" type="button" id="button-addon2">댓글달기</button>
+                                    </div>
+                                    <div class="card">
+                                        <div class="card-body">
+                                            댓글 들어갈 폼~
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        <div class="Movie_link">
+            </div>
+    </div>
+</body>
+</html>
